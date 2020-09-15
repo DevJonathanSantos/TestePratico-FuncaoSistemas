@@ -25,6 +25,12 @@ $(document).ready(function () {
                     display: function (data) {
                         return '<button onclick="window.location.href=\'' + urlAlteracao + '/' + data.record.Id + '\'" class="btn btn-primary btn-sm">Alterar</button>';
                     }
+                },
+                Deletar: {
+                    title: '',
+                    display: function (data) {
+                        return '<button onclick="window.location.href=\'' + urlDelete + '/' + data.record.Id + '\'" class="btn btn-primary btn-sm">Deletar</button>';
+                    }
                 }
             }
         });

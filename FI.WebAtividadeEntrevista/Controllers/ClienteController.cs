@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FI.AtividadeEntrevista.DML;
+using System.Threading.Tasks;
 
 namespace WebAtividadeEntrevista.Controllers
 {
@@ -94,11 +95,21 @@ namespace WebAtividadeEntrevista.Controllers
                     Nacionalidade = model.Nacionalidade,
                     Nome = model.Nome,
                     Sobrenome = model.Sobrenome,
+                    CPF = model.CPF,
                     Telefone = model.Telefone
                 });
 
                 return Json("Cadastro alterado com sucesso");
             }
+        }
+
+        [HttpGet]
+        public JsonResult Deletar(ClienteModel model)
+        {
+            BoCliente bo = new BoCliente();
+
+            bo.Excluir(model.Id);
+            return Json("Cliente Deletado com sucesso!!!", JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -121,10 +132,9 @@ namespace WebAtividadeEntrevista.Controllers
                     Nacionalidade = cliente.Nacionalidade,
                     Nome = cliente.Nome,
                     Sobrenome = cliente.Sobrenome,
+                    CPF = cliente.CPF,
                     Telefone = cliente.Telefone
                 };
-
-
             }
 
             return View(model);

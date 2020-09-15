@@ -45,10 +45,10 @@ namespace FI.AtividadeEntrevista.BLL
         /// </summary>
         /// <param name="id">id do cliente</param>
         /// <returns></returns>
-        public void Excluir(long id)
+        public void Excluir(long ID)
         {
             DAL.DaoCliente cli = new DAL.DaoCliente();
-            cli.Excluir(id);
+            cli.Excluir(ID);
         }
 
         /// <summary>
